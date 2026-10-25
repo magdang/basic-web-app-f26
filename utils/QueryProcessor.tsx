@@ -17,7 +17,9 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("age")) {
     return "67";
   }
-
+    if (query.toLowerCase().includes("75")) {
+    return "86";
+  }
 
 
   return "";

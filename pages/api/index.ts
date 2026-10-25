@@ -10,7 +10,7 @@ export default function handler(
 ) {
   console.log(req.url);
   
-  const query = req.query.q as string;
+  const query = typeof req.query.q === "string" ? req.query.q : "";
   const response = QueryProcessor(query);
 
   res.status(200).send(response);

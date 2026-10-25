@@ -38,6 +38,11 @@ describe("QueryProcessor", () => {
     })
     test.each([
         ["What is 35 plus 64?", "99"],
+        ["What is 1 plus 83 plus 7?", "91"],
+        ["What is 57 multiplied by 21 plus 76?", "1273"],
+        ["What is 76 plus 57 multiplied by 21?", "1273"],
+        ["What is 2 to the power of 32?", "4294967296"],
+        ["What is 82 to the power of 35?", "9626863931461188869957422590261501933525149197700964582250478829568"],
         ["abc: what is 10 plus 37?", "47"],
         ["what is 8 multiplied by 7?", "56"],
         ["what is 8 minus 12?", "-4"],

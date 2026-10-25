@@ -1,6 +1,14 @@
 export default function QueryProcessor(query: string): string {
   if (typeof query !== "string") return "";
   const question = query.toLowerCase().replace(/^[a-f0-9]+: /, "");
+  const scrabble = question.match(/scrabble score of ["']?([a-z]+)["']?\??$/);
+  if (scrabble) {
+    const scores: Record<string, number> = {};
+    ["aeilnorstu", "dg", "bcmp", "fhvwy", "k", "", "", "jx", "", "qz"].forEach((letters, index) => {
+      for (const letter of letters) scores[letter] = index + 1;
+    });
+    return String([...scrabble[1]].reduce((total, letter) => total + scores[letter], 0));
+  }
   const arithmetic = question.match(/what is ((?:-?\d+)(?: (?:plus|minus|multiplied by|times|to the power of) -?\d+)+)\??$/);
   if (arithmetic) {
     const tokens = arithmetic[1].split(/ (plus|minus|multiplied by|times|to the power of) /);

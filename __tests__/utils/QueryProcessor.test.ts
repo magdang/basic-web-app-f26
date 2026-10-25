@@ -38,6 +38,7 @@ describe("QueryProcessor", () => {
     })
     test.each([
         ["What is 35 plus 64?", "99"],
+        ["Which of the following is an anagram of listen: banana, google, enlists, inlets?", "inlets"],
         ["What is the scrabble score of september?", "15"],
         ["What is 1 plus 83 plus 7?", "91"],
         ["What is 57 multiplied by 21 plus 76?", "1273"],

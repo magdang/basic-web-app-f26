@@ -1,6 +1,11 @@
 export default function QueryProcessor(query: string): string {
   if (typeof query !== "string") return "";
   const question = query.toLowerCase().replace(/^[a-f0-9]+: /, "");
+  const anagram = question.match(/anagram of ["']?([a-z]+)["']?: (.+?)\??$/);
+  if (anagram) {
+    const sorted = (word: string) => word.trim().split("").sort().join("");
+    return anagram[2].split(",").map(word => word.trim()).filter(word => sorted(word) === sorted(anagram[1])).join(", ");
+  }
   const scrabble = question.match(/scrabble score of ["']?([a-z]+)["']?\??$/);
   if (scrabble) {
     const scores: Record<string, number> = {};

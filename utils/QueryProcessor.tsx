@@ -17,8 +17,8 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("35")) {
     return "99";
   }
-    if (query.toLowerCase().includes("92")) {
-    return "92";
+    if (query.toLowerCase().includes("25")) {
+    return "66";
   }
 
 
